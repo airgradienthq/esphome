@@ -1,25 +1,10 @@
 # AirGradient ESPHome Configurations
 
+This version is based on [MallocArray ESP Home](https://github.com/MallocArray/airgradient_esphome) integration. Many thanks for suporting the community!
+
+This repository contains changes so that the ESPHome firmware can be flashed on the monitors during our assembly process.
+
 ESPHome yaml files for AirGradient devices to maintain the research and accuracy of AirGradient sensors, while also gaining the benefits of ESPHome/HomeAssistant for easy to use switches, buttons, configurations, and dashboards.  Maintains the ability to also send data to the AirGradient Dashboard, which can also be disabled/removed to keep all data local.
-
-## Breaking Changes
-
-In the 2.x release of these configurations, some breaking changes are introduced
-
-* See previous 1.x release breaking changes if coming from earlier versions
-* Changed `name_add_mac_suffix` to false by default.  This will no longer add the MAC address to the end of the device name.  Assists ESPHome in properly detecting new device as Online without a static IP.  Can be changed to `true` if desired. Ensure all devices have unique `name:` fields if `false`.
-* Changed the variable names in the `substitutions:` section to have them match the ESPHome parameters they are used with.
-* Changed to `config_version:` substitution name for a shorter name
-* Disabled Upload to AirGradient Dashboard by default, but able to flip the switch in HomeAssistant to enable if desired
-
-## Changes
-
-* Added Display Contrast slider to dim the display
-* Added device_class to the PMSx005 sensors to have them properly reflect in the HomeKit integration if supported ([Forum Link](https://forum.airgradient.com/t/airgradient-one-customized-mallocarray-esphome-display/1328/7?u=mallocarray))
-* Added optional Factory Reset switch that is disabled by default. Can be enabled in HomeAssistant and used if desired
-* Added optional `diagnostic.yaml` package with extra sensors about the ESP device itself, including temperature and free
-* Added optional `sensor_bme680.yaml` package to support the BME680 module if desired
-* Added `dashboard_import` to assist discovery of new devices installed with the pre-compiled .bin files
 
 ## Features
 
@@ -151,18 +136,3 @@ Several additional packages are available in the `packages` folder that can be a
 MQTT support has been mentioned in the AirGradient forums several times.  ESPHome supports this by adding a few lines to the main yaml file. Add the relevant information for your configuration. Read more about it here:
 [https://esphome.io/components/mqtt.html](https://esphome.io/components/mqtt.html)
 
-## Todo list
-
-Several more features are planned to be added to this repo
-
-- [ ] Support for Open Air without CO2 sensor (Model: O-1PPT)
-- [ ] Explore options for disabling display/LED during certain times (May be differed to HomeAssistant Automations)
-- [ ] Standardize font on AirGradient Basic display to match Pro
-- [ ] Reduce number of fonts used in the multi_page package
-  - [ ] Open Sans displays a consistent height, but some characters, such as F and 0 are mismatched, the left side is double line thick while right is single line
-  - [ ] Poppins Light is consistent thickness, but numbers are taller than letters, giving a mismatched height
-- [ ] Add GitHub actions to automatically build updated .bin files as needed
-- [X] Add support for esp32_improv and improv_serial (improv_serial not supported with this board and used pins.  esp32_improv uses 30% of available flash memory and is nearly full)
-  - [X] [https://esphome.io/guides/creators.html](https://esphome.io/guides/creators.html "https://esphome.io/guides/creators.html")
-- [X] Add support for dashboard_import and project information
-  - [X] [https://esphome.io/guides/creators.html](https://esphome.io/guides/creators.html "https://esphome.io/guides/creators.html")
