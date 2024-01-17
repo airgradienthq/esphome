@@ -32,6 +32,7 @@ switch:
     id: upload_airgradient
     restore_mode: RESTORE_DEFAULT_OFF
     optimistic: True
+#get_mac_address().c_str()
 
 esphome:
   on_boot:
