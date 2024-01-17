@@ -3,7 +3,7 @@
 
 substitutions:
   name: "ag-one"
-  friendly_name: "AG One"
+  friendly_name: "AirGradient ONE"
   config_version: 2.0.0
   name_add_mac_suffix: "true"  # Must have quotes around value
 
