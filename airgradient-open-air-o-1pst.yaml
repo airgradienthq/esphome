@@ -29,5 +29,6 @@ packages:
   airgradient_api: github://airgradienthq/esphome/packages/airgradient_api_esp32-c3.yaml
   hardware_watchdog: github://airgradienthq/esphome/packages/watchdog.yaml
   wifi: github://airgradienthq/esphome/packages/sensor_wifi.yaml
+  mac_address: github://airgradienthq/esphome/packages/sensor_mac_address.yaml
   uptime: github://airgradienthq/esphome/packages/sensor_uptime.yaml
   safe_mode: github://airgradienthq/esphome/packages/switch_safe_mode.yaml

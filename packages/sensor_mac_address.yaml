@@ -1,0 +1,4 @@
+text_sensor:
+  - platform: wifi_info
+    mac_address:
+      name: ESP Mac Wifi Address

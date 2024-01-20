@@ -15,6 +15,7 @@ esp32:
 
 esp32_improv:  # Uses around 30% of available flash space due to loading BLE stack
   authorizer: none
+  next_url: https://app.airgradient.com/onboarding/welcome
 
 # Enable logging
 # https://esphome.io/components/logger.html

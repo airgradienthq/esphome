@@ -21,7 +21,9 @@ dashboard_import:
   import_full_config: false
 
 packages:
-  board: github://airgradienthq/esphome/packages/airgradient_esp32-c3_board.yaml
+  board:
+    url: github://airgradienthq/esphome/packages/airgradient_esp32-c3_board.yaml
+    refresh: 0s
   pm_2.5: github://airgradienthq/esphome/packages/sensor_pms5003.yaml
   co2: github://airgradienthq/esphome/packages/sensor_s8.yaml
   temp_humidity: github://airgradienthq/esphome/packages/sensor_sht40.yaml
@@ -33,6 +35,7 @@ packages:
   hardware_watchdog: github://airgradienthq/esphome/packages/watchdog.yaml
   config_button: github://airgradienthq/esphome/packages/config_button.yaml
   wifi: github://airgradienthq/esphome/packages/sensor_wifi.yaml
+  mac_address: github://airgradienthq/esphome/packages/sensor_mac_address.yaml
   uptime: github://airgradienthq/esphome/packages/sensor_uptime.yaml
   safe_mode: github://airgradienthq/esphome/packages/switch_safe_mode.yaml
 
