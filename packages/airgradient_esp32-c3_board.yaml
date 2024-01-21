@@ -13,20 +13,12 @@ esphome:
 esp32:
   board: esp32-c3-devkitm-1
 
-esp32_improv:  # Uses around 30% of available flash space due to loading BLE stack
-  authorizer: none
-  next_url: https://app.airgradient.com/onboarding/welcome
-
 # Enable logging
 # https://esphome.io/components/logger.html
 logger:
   baud_rate: 0  # Must disable serial logging as it conflicts with pms5003 uart pins and ESP32-C3 only has 2 hardware UART
   logs:
     component: ERROR  # Hiding warning messages about component taking a long time https://github.com/esphome/issues/issues/4717
-
-# The captive portal is a fallback mechanism for when connecting to the configured WiFi fails.
-# https://esphome.io/components/captive_portal.html
-captive_portal:
 
 # web_server:  # Please note that enabling this component will take up a lot of memory and may decrease stability, especially on ESP8266.
 

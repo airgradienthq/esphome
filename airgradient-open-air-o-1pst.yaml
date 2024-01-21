@@ -17,6 +17,13 @@ wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
 
+esp32_improv:  # Uses around 30% of available flash space due to loading BLE stack
+  authorizer: none
+
+# The captive portal is a fallback mechanism for when connecting to the configured WiFi fails.
+# https://esphome.io/components/captive_portal.html
+captive_portal:
+
 dashboard_import:
   package_import_url: github://airgradienthq/esphome/airgradient-open-air-o-1pst.yaml
   import_full_config: false
