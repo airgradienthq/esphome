@@ -10,7 +10,7 @@ font:
   - file: "gfonts://Open Sans"
     id: open_sans_20
     size: 20
-    glyphs: '!"%()+=,-_.:°0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz/µ³'
+    glyphs: 'na,-_.:°0123456789'
 
 display:
   - platform: ssd1306_i2c
@@ -51,40 +51,24 @@ display:
           it.printf(0, 42, id(open_sans_14), "$friendly_name");
 
     on_page_change:
-      - to: airgradient_default
-        then:
-          - if:
-              condition:
-                switch.is_off: display_ag_default_page
-              then:
-                - display.page.show_next: oled_display
-                - component.update: oled_display
-      - to: boot
-        then:
-          - if:
-              condition:
-                switch.is_off: display_boot_page
-              then:
-                - display.page.show_next: oled_display
-                - component.update: oled_display
+      to: boot
+      then:
+        - if:
+            # Skip the boot page after initial boot
+            condition:
+                lambda: 'return id(device_uptime).state > 10;'
+            then:
+              - display.page.show_next: oled_display
+              - component.update: oled_display
 
 interval:
-  - interval: 10s
-    startup_delay: 1s
-    # Show boot screen serial number and config version only when first starting up
-    then:
-      if:
-        condition:
-          switch.is_on: display_boot_page
-        then:
-          switch.turn_off: display_boot_page
   - interval: 5s
     # Automatically switch to the next page every five seconds
     then:
       - if:
-          # Always show boot screen if switch is enabled
+          # Show boot screen for first 10 seconds with serial number and config version
           condition:
-              switch.is_on: display_boot_page
+              lambda: 'return id(device_uptime).state < 5;'
           then:
             - display.page.show: boot
           else:
@@ -101,22 +85,6 @@ switch:
     optimistic: True
     entity_category: config
     icon: "mdi:thermometer"
-
-  - platform: template
-    name: "Display AirGradient Default Page"
-    id: display_ag_default_page
-    restore_mode: RESTORE_DEFAULT_ON
-    optimistic: True
-    entity_category: config
-    icon: "mdi:monitor"
-
-  - platform: template
-    name: "Display Boot Page"
-    id: display_boot_page
-    restore_mode: ALWAYS_ON
-    optimistic: True
-    entity_category: config
-    icon: "mdi:monitor"
 
 number:
   - platform: template
