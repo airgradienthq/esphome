@@ -38,13 +38,13 @@ packages:
   led_co2: github://airgradienthq/esphome/packages/led_co2.yaml
   airgradient_api: github://airgradienthq/esphome/packages/airgradient_api_esp32-c3.yaml
   hardware_watchdog: github://airgradienthq/esphome/packages/watchdog.yaml
-  # config_button: github://airgradienthq/esphome/packages/config_button.yaml
+  config_button: github://airgradienthq/esphome/packages/config_button.yaml
   wifi: github://airgradienthq/esphome/packages/sensor_wifi.yaml
   mac_address: github://airgradienthq/esphome/packages/sensor_mac_address.yaml
   uptime: github://airgradienthq/esphome/packages/sensor_uptime.yaml
-  # safe_mode: github://airgradienthq/esphome/packages/switch_safe_mode.yaml
+  safe_mode: github://airgradienthq/esphome/packages/switch_safe_mode.yaml
 
-#binary_sensor:
-#  - id: !extend config_button
-#    pin:
-#      ignore_strapping_warning: true  # Acknowledging that this is a strapping pin and should not have external pullup/down resistors  https://esphome.io/guides/faq.html#why-am-i-getting-a-warning-about-strapping-pins
+binary_sensor:
+  - id: !extend config_button
+    pin:
+      ignore_strapping_warning: true  # Acknowledging that this is a strapping pin and should not have external pullup/down resistors  https://esphome.io/guides/faq.html#why-am-i-getting-a-warning-about-strapping-pins
