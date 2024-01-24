@@ -41,7 +41,7 @@ packages:
   # config_button: github://airgradienthq/esphome/packages/config_button.yaml
   wifi: github://airgradienthq/esphome/packages/sensor_wifi.yaml
   mac_address: github://airgradienthq/esphome/packages/sensor_mac_address.yaml
-  # uptime: github://airgradienthq/esphome/packages/sensor_uptime.yaml
+  uptime: github://airgradienthq/esphome/packages/sensor_uptime.yaml
   # safe_mode: github://airgradienthq/esphome/packages/switch_safe_mode.yaml
 
 #binary_sensor:
