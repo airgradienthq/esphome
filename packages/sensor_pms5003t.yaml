@@ -50,15 +50,15 @@ sensor:
             send_every: 30
     humidity:
       name: "Humidity"
-        id: humidity
-        filters:
-          # https://www.airgradient.com/blog/linear-regression-improves-sensor-accuracy/
-          # - lambda: return x * 1.500574 - 4.76;
-          # https://forum.airgradient.com/t/open-air-outdoor-air-quality-monitor-humidity-readings-are-off/1171/2
-          - lambda: return x * 1.3921 - 1.0245;
-          - sliding_window_moving_average:
-              window_size: 30
-              send_every: 30
+      id: humidity
+      filters:
+        # https://www.airgradient.com/blog/linear-regression-improves-sensor-accuracy/
+        # - lambda: return x * 1.500574 - 4.76;
+        # https://forum.airgradient.com/t/open-air-outdoor-air-quality-monitor-humidity-readings-are-off/1171/2
+        - lambda: return x * 1.3921 - 1.0245;
+        - sliding_window_moving_average:
+            window_size: 30
+            send_every: 30
 
 
   - platform: template
